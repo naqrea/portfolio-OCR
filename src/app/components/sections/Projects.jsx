@@ -1,137 +1,79 @@
 "use client";
-
-import React, { useRef } from "react";
-import Link from "next/link";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { CircleArrowRight } from "lucide-react";
 
-const Projects = ({ projects = [] }) => {
-  const scrollContainerRef = useRef(null);
-
-  const scroll = (direction) => {
-    if (!scrollContainerRef.current) return;
-
-    const container = scrollContainerRef.current;
-    const scrollAmount = container.clientWidth;
-    const newScrollPosition =
-      direction === "left"
-        ? container.scrollLeft - scrollAmount
-        : container.scrollLeft + scrollAmount;
-
-    container.scrollTo({
-      left: newScrollPosition,
-      behavior: "smooth",
-    });
-  };
+const ProjectCard = ({ project }) => {
+  const formattedDate = `'${project.date.slice(2, 4)}`;
 
   return (
-    <section
-      className="relative container mx-auto px-4 py-16 min-h-screen"
-      id="projects"
+    <motion.article
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+      className="group relative border-t border-white/20 py-12 md:py-20"
     >
-      <div className="absolute w-screen bg-black h-full top-0 -left-48 "></div>
-      <div className="relative group h-fit">
-        <button
-          onClick={() => scroll("left")}
-          className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 bg-green rounded-full p-4 border border-black hover:bg-white justify-center items-center"
-          aria-label="Précédent"
-        >
-          <ChevronLeft size={24} />
-        </button>
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-16">
+        <div className="relative aspect-[4/3] w-full overflow-hidden order-1 lg:order-3 lg:w-[300px] lg:aspect-[4/3]">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+          />
+        </div>
 
-        <button
-          onClick={() => scroll("right")}
-          className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 bg-green rounded-full p-4 border border-black hover:bg-white justify-center items-center"
-          aria-label="Suivant"
-        >
-          <ChevronRight size={24} />
-        </button>
+        <div className="space-y-6 order-2 lg:order-1 lg:col-span-5">
+          <h3 className="text-2xl md:text-4xl font-roboto uppercase text-white">
+            {project.title}
+          </h3>
 
-        <div
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto md:overflow-x-hidden gap-4 md:gap-8 snap-x snap-mandatory scrollbar-hide -mx-4 md:mx-0 px-4 md:px-0"
-        >
-          {projects.map((project) => (
-            <article
-              key={project.slug}
-              className="flex-none w-[85%] sm:w-[60%] md:w-[calc(50%-1rem)] lg:w-[calc(40%-1rem)] min-w-[280px] snap-start"
-            >
-              <div className="flex flex-col gap-4">
-                <div className="flex relative border-b border-black h-16 gap-4 sm:gap-2">
-                  <Link
-                    href={project.url || "#"}
-                    className="w-fit font-roboto border text-xl border-white py-2 px-4 text-white hover:scale-105 duration-300 flex items-center justify-center sm:justify-start gap-2 absolute right-0 bottom-2"
-                  >
-                    VISITER LE SITE
-                    <Image
-                      src="/images/navigateto.svg"
-                      alt="Navigate to"
-                      width={24}
-                      height={24}
-                    />
-                  </Link>
-                </div>
-                <div className="relative aspect-video w-full">
-                  {project.image && (
-                    <Image
-                      src={project.image}
-                      alt={project.title || ""}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 85vw, (max-width: 768px) 60vw, (max-width: 1024px) 45vw, 30vw"
-                    />
-                  )}
-                </div>
-                <div className="bg-white border border-black p-4 md:p-8">
-                  <h3 className="font-times italic text-3xl md:text-5xl mb-2 md:mb-2 tracking-tight">
-                    {project.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {Array.isArray(project.category) &&
-                      project.category.map((cat, index) => (
-                        <span
-                          key={`${project.slug}-cat-${index}`}
-                          className="font-roboto uppercase text-xl "
-                        >
-                          {cat}
-                        </span>
-                      ))}
-                  </div>
-                  <div className="font-roboto leading-relaxed my-6 min-h-24 md:min-h-28">
-                    {project.content}
-                  </div>
-                  <div className="flex flex-col  mt-6 place-self-end">
-                    <span className="font-roboto text-xl ">STACK </span>
-                    <div className="flex flex-wrap gap-4 ">
-                      {Array.isArray(project.tags) &&
-                        project.tags.map((tag, index) => (
-                          <div
-                            key={`${project.slug}-tag-${index}`}
-                            className="relative group/tooltip"
-                          >
-                            <div className="w-8 h-8 relative hover:scale-110 transition-transform">
-                              <Image
-                                src={`/images/logos/${tag.toLowerCase()}.svg`}
-                                alt={`${tag} logo`}
-                                fill
-                                className="object-contain"
-                              />
-                            </div>
-                            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white px-2 py-1 text-xs rounded opacity-0 group-hover/tooltip:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                              {tag}
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
+          <Link
+            href={project.url || "#"}
+            className="flex items-center justify-end gap-3 font-roboto bg-white text-black hover:bg-black hover:text-white border border-white px-8 py-3 transition-colors duration-300"
+          >
+            VISITER LE SITE
+            <CircleArrowRight size={20} strokeWidth={1.4} />
+          </Link>
+
+          <span className="block text-green text-xl lg:text-2xl font-roboto">
+            {formattedDate}
+          </span>
+        </div>
+
+        <div className="space-y-6 order-3 lg:order-2 lg:col-span-4">
+          <div className="text-white/80 font-roboto text-sm md:text-base leading-relaxed">
+            {project.content}
+          </div>
+
+          <div className="flex flex-wrap gap-4">
+            {project.tags?.map((tag) => (
+              <span
+                key={tag}
+                className="text-white/60 font-roboto text-sm lg:text-base uppercase"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.article>
+  );
+};
+
+export default function Projects({ projects }) {
+  return (
+    <section className="py-20 bg-black">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col gap-12 md:gap-0">
+          {projects?.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Projects;
+}

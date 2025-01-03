@@ -20,7 +20,7 @@ export default function Footer() {
                 sizes="(max-width: 640px) 6rem, (max-width: 768px) 7rem, 8rem"
               />
             </div>
-            <p className="text-black font-roboto-mono text-xl sm:text-2xl leading-tight text-center sm:text-left">
+            <p className="text-black font-roboto text-2xl lg:text-4xl  leading-tight text-center sm:text-left">
               UN PROJET
               <br />
               WEB À
@@ -31,10 +31,10 @@ export default function Footer() {
 
           <a
             href="mailto:andreavrl@proton.me"
-            className="w-full sm:w-auto flex items-center justify-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 border border-black text-black font-roboto-mono bg-green hover:bg-black hover:text-white transition-all"
+            className="w-fit sm:w-auto flex items-center justify-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 border border-black text-white font-roboto bg-black hover:bg-black hover:bg-green hover:text-black transition-all"
           >
-            <Mail size={20} />
-            <span className="text-xl sm:text-2xl">CONTACT</span>
+            <Mail size={32} strokeWidth={1.3} />
+            <span className="text-2xl">CONTACT</span>
           </a>
         </div>
       </div>

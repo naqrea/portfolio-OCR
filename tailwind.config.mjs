@@ -14,7 +14,6 @@ export default {
         grey: "#B9ADAC",
       },
       fontFamily: {
-        "roboto-mono": ["var(--font-roboto-mono)", "monospace"],
         roboto: ["var(--font-roboto)", "sans-serif"],
         times: ['"Times New Roman"', "Times", "serif"],
       },

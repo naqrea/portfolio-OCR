@@ -2,53 +2,112 @@
 
 import React from "react";
 import ImageCarousel from "../ui/ImageCarousel";
-import Image from "next/image";
+import { CircleArrowDown } from "lucide-react";
+import { delay, motion } from "framer-motion";
 
 export default function Landing({ projects }) {
+  // Variants
+  const titleVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+        delay: 0.6,
+      },
+    },
+  };
+
+  const portfolioLineVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+        delay: 1.2,
+      },
+    },
+  };
+
+  const projectsSectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+        delay: 0.1,
+      },
+    },
+  };
+
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row  ">
-      <div className="container mx-auto ">
-        <section className="relative min-h-screen flex flex-col justify-center items-center lg:flex-row lg:items-center z-10 pb-16 ">
-          <div className="w-full ">
-            <div className="flex flex-col  gap-2 sm:gap-4">
-              <h1 className="font-times italic text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-black">
+    <div className="min-h-screen flex flex-col lg:flex-row">
+      <div className="container mx-auto">
+        <section className="relative min-h-screen md:gap-0 gap-16 flex flex-col justify-center items-center lg:flex-row lg:items-start z-10 lg:py-44 mt-10">
+          <div className="md:w-full w-fit">
+            <div className="flex flex-col gap-4">
+              <motion.h1
+                className="font-times italic text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-black"
+                variants={titleVariants}
+                initial="hidden"
+                animate="visible"
+              >
                 Andrea Varela.
-              </h1>
-              <div className="font-roboto-mono place-self-start w-full text-xl sm:text-2xl md:text-3xl text-black flex flex-col sm:w-[248px]">
-                <span className="lg:self-end">
-                  PORTFOLIO <span className="font-semibold">'25</span>
-                </span>
-                <span>
-                  WEB <span className="font-semibold">DEVELOPPER</span>{" "}
-                </span>
-                <span>
-                  & UI <span className="font-semibold">DESIGNER</span>
-                </span>
+              </motion.h1>
+
+              <div className="font-roboto w-fit sm:text-4xl text-2xl md:text-5xl font-light text-black flex flex-col self-end md:self-start">
+                <motion.span
+                  className="self-end"
+                  variants={portfolioLineVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  PORTFOLIO <span className="font-normal">'25</span>
+                </motion.span>
+
+                <motion.span
+                  variants={portfolioLineVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <span className="font-normal">WEB DEV</span>ELOPPER
+                </motion.span>
+
+                <motion.span
+                  variants={portfolioLineVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  & <span className="font-normal">UI DESIGN</span>ER
+                </motion.span>
               </div>
             </div>
           </div>
 
-          <a
+          <motion.a
             href="#projects"
-            className="border-black border flex-col flex items-center justify-center mt-36  lg:self-end  hover:scale-105 transition-transform duration-500 w-fit  md:0 lg:0"
+            className="border-black border flex-col flex items-center justify-center lg:self-end hover:scale-105 transition-transform duration-500 w-fit"
+            variants={projectsSectionVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 2.5 }}
           >
             <div className="w-full">
               <ImageCarousel projects={projects} />
             </div>
-            <div className="bg-[#ffffff] w-full p-4 flex justify-between items-center transition-all duration-300">
-              <span className="font-roboto-mono text-sm sm:text-base">
+            <div className="bg-[#ffffff] w-full px-6 py-3 flex justify-between items-center transition-all duration-300">
+              <span className="font-roboto text-xl leading-tight">
                 PARCOURIR <br />
                 LES PROJETS
               </span>
-              <Image
-                src="/images/scrolldown.svg"
-                alt="Scroll down"
-                width={32}
-                height={32}
-                className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
-              />
+              <CircleArrowDown size={32} strokeWidth={1.1} />
             </div>
-          </a>
+          </motion.a>
         </section>
       </div>
     </div>

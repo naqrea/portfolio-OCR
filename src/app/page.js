@@ -9,7 +9,7 @@ export default async function Home() {
   const images = await getGalleryImages();
 
   return (
-    <main className="flex flex-col gap-40">
+    <main className="flex flex-col">
       <Landing projects={projects} />
       <Projects projects={projects} />
       <About />

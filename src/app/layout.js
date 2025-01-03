@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body
-        className={`${roboto.variable} bg-texture  bg-center bg-[#ffffff] bg-opacity-100 overflow-x-hidden`}
+        className={`${roboto.variable} bg-texture bg-center bg-[#ffffff]  overflow-x-hidden`}
       >
         <SmoothScroll>
           <Navbar />

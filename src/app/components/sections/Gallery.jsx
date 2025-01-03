@@ -26,7 +26,7 @@ const Gallery = ({ images = [] }) => {
   };
 
   return (
-    <div className="container mx-auto  py-16 relative " id="gallery">
+    <div className="container mx-auto  relative " id="gallery">
       <Masonry
         breakpointCols={breakpointColumns}
         className="flex -ml-4 w-auto"
@@ -37,10 +37,11 @@ const Gallery = ({ images = [] }) => {
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative group cursor-pointer mb-4"
+            className="relative group cursor-pointer lg:mb-4"
             onClick={() => openModal(image)}
+            data-background="dark"
           >
             <div className="relative w-full">
               <Image
