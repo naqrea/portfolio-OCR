@@ -66,7 +66,7 @@ const ProjectCard = ({ project }) => {
 
 export default function Projects({ projects }) {
   return (
-    <section className="py-20 bg-black" data-background="dark">
+    <section className="py-20 bg-black" data-background="dark" id="projects">
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-12 md:gap-0">
           {projects?.map((project) => (
