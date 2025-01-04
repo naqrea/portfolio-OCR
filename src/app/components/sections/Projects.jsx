@@ -16,7 +16,7 @@ const ProjectCard = ({ project }) => {
       className="group relative border-t border-white/20 py-12 md:py-20"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-16">
-        <div className="relative aspect-[4/3] w-full overflow-hidden order-1 lg:order-3 lg:w-[300px] lg:aspect-[4/3]">
+        <div className="relative aspect-[4/3] w-full overflow-hidden order-1 lg:order-3 lg:w-[600px] lg:aspect-[4/3]">
           <Image
             src={project.image}
             alt={project.title}
@@ -25,7 +25,7 @@ const ProjectCard = ({ project }) => {
           />
         </div>
 
-        <div className="space-y-6 order-2 lg:order-1 lg:col-span-5">
+        <div className="space-y-6 order-2 lg:order-1 lg:col-span-4">
           <h3 className="text-2xl md:text-4xl font-roboto uppercase text-white">
             {project.title}
           </h3>
@@ -33,6 +33,7 @@ const ProjectCard = ({ project }) => {
           <Link
             href={project.url || "#"}
             className="flex items-center justify-end gap-3 font-roboto bg-white text-black hover:bg-black hover:text-white border border-white px-8 py-3 transition-colors duration-300"
+            target="_blank"
           >
             VISITER LE SITE
             <CircleArrowRight size={20} strokeWidth={1.4} />
@@ -43,7 +44,7 @@ const ProjectCard = ({ project }) => {
           </span>
         </div>
 
-        <div className="space-y-6 order-3 lg:order-2 lg:col-span-4">
+        <div className="space-y-6 order-3 lg:order-2 lg:col-span-3">
           <div className="text-white/80 font-roboto text-sm md:text-base leading-relaxed">
             {project.content}
           </div>
