@@ -104,7 +104,7 @@ export default function Navbar() {
         initial="closed"
         animate={isOpen ? "open" : "closed"}
         variants={menuVariants}
-        className="fixed top-0 right-0 h-screen w-screen md:w-[40vw] bg-black shadow-lg p-16 flex flex-col justify-end items-end text-end "
+        className="fixed top-0 right-0 h-screen w-screen md:w-[40vw] bg-black shadow-lg p-16 flex flex-col justify-end items-end text-end pb-32"
       >
         <motion.div
           className="flex flex-col gap-8 md:gap-10"
@@ -119,7 +119,7 @@ export default function Navbar() {
             <motion.a
               key={item.text}
               href={item.href}
-              className="font-roboto text-white text-3xl lg:font-light md:text-6xl"
+              className="font-roboto text-white text-3xl lg:font-light md:text-5xl"
               whileHover={{
                 fontWeight: "normal",
               }}

@@ -3,7 +3,7 @@
 import React from "react";
 import ImageCarousel from "../ui/ImageCarousel";
 import { CircleArrowDown } from "lucide-react";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Landing({ projects }) {
   // Variants
@@ -47,7 +47,7 @@ export default function Landing({ projects }) {
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-16">
         <section className="relative min-h-screen md:gap-0 gap-16 flex flex-col justify-center items-center lg:flex-row lg:items-start z-10 lg:py-44 mt-10">
           <div className="md:w-full w-fit">
             <div className="flex flex-col gap-4">

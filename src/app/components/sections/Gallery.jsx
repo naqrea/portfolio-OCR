@@ -37,7 +37,7 @@ const Gallery = ({ images = [] }) => {
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="relative group cursor-pointer lg:mb-4"
             onClick={() => openModal(image)}
