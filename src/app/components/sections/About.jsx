@@ -59,7 +59,7 @@ export default function About() {
 
   return (
     <section
-      className="w-full flex flex-col justify-between items-center my-32"
+      className="w-full flex flex-col justify-between items-center my-32 pt-6"
       id="about"
     >
       <div className="container mx-auto px-4">
