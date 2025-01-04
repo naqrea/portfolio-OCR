@@ -4,11 +4,8 @@ import { Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer
-      className="bg-[#ffffff] py-8 sm:py-12 lg:py-16 relative"
-      id="contact"
-    >
-      <div className="container mx-auto px-4 sm:px-8 lg:px-24">
+    <footer className="bg-[#ffffff] py-16 relative" id="contact">
+      <div className="container mx-auto pt-32 px-4 sm:px-8 lg:px-24">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-8 sm:gap-4">
           <div className="flex flex-col sm:flex-row items-center sm:items-end gap-6 sm:gap-8 lg:gap-12">
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32">

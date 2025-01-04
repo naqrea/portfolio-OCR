@@ -41,13 +41,13 @@ const Gallery = ({ images = [] }) => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="relative group cursor-pointer lg:mb-4"
             onClick={() => openModal(image)}
-            data-background="dark"
           >
             <div className="relative w-full">
               <Image
                 src={image.src}
                 alt={image.description || ""}
                 className="w-full h-auto"
+                data-background="dark"
                 width={500}
                 height={300}
                 unoptimized
