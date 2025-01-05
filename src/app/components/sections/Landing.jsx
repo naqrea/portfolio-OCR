@@ -60,7 +60,7 @@ export default function Landing({ projects }) {
                 Andrea Varela.
               </motion.h1>
 
-              <div className="font-roboto w-fit sm:text-4xl text-2xl md:text-5xl font-light text-black flex flex-col self-end md:self-start">
+              <h2 className="font-roboto w-fit sm:text-4xl text-2xl md:text-5xl font-light text-black flex flex-col self-end md:self-start">
                 <motion.span
                   className="self-end"
                   variants={portfolioLineVariants}
@@ -85,7 +85,7 @@ export default function Landing({ projects }) {
                 >
                   & <span className="font-normal">UI DESIGN</span>ER
                 </motion.span>
-              </div>
+              </h2>
             </div>
           </div>
 
@@ -101,10 +101,10 @@ export default function Landing({ projects }) {
               <ImageCarousel projects={projects} />
             </div>
             <div className="bg-[#ffffff] w-full px-6 py-3 flex justify-between items-center transition-all duration-300">
-              <span className="font-roboto text-xl leading-tight">
+              <h2 className="font-roboto text-xl leading-tight">
                 PARCOURIR <br />
                 LES PROJETS
-              </span>
+              </h2>
               <CircleArrowDown size={32} strokeWidth={1.1} />
             </div>
           </motion.a>

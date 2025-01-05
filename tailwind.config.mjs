@@ -18,7 +18,7 @@ export default {
         times: ['"Times New Roman"', "Times", "serif"],
       },
       backgroundImage: {
-        texture: "url('/images/texture.png')",
+        texture: "url('/images/texture.webp')",
       },
     },
   },

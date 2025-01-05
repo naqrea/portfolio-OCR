@@ -57,6 +57,11 @@ export default function About() {
     },
   };
 
+  const viewportOptions = {
+    once: true,
+    amount: 0.3,
+  };
+
   return (
     <section
       className="w-full flex flex-col justify-between items-center my-32 pt-6"
@@ -68,7 +73,8 @@ export default function About() {
             className="font-roboto w-fit text-4xl sm:text-4xl md:text-5xl lg:font-light text-black flex flex-col self-center md:self-start"
             variants={titleVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={viewportOptions}
           >
             <span className="self-end">HELLO!</span>
             <span>MOI, C'EST</span>
@@ -79,7 +85,8 @@ export default function About() {
             className="font-roboto text-black flex flex-col md:flex-row w-full md:w-1/2 self-center text-sm gap-4"
             variants={textVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={viewportOptions}
           >
             <div className="flex flex-1">
               J'ai toujours aimé créer, que ce soit à travers de l'illustration,
@@ -100,11 +107,12 @@ export default function About() {
             className="w-full sm:w-[400px] border border-black self-center md:self-end overflow-hidden"
             variants={imageCardVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={viewportOptions}
           >
             <div className="relative w-full sm:w-[400px] h-[266px]">
               <Image
-                src="/images/about.png"
+                src="/images/about.webp"
                 alt="Photo d'Andrea"
                 fill
                 className="object-cover"
@@ -125,11 +133,12 @@ export default function About() {
         className="font-roboto text-xl flex flex-col items-center justify-center pt-20 xl:pt-0"
         variants={linkVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={viewportOptions}
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
       >
-        <h3>DÉCOUVRIR MES ILLUSTRATIONS</h3>
+        <h2>DÉCOUVRIR MES ILLUSTRATIONS</h2>
         <CircleArrowDown size={40} strokeWidth={1} />
       </motion.a>
     </section>
