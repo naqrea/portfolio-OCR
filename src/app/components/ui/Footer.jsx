@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
 
           <a
-            href="mailto:andreavrl@proton.me"
+            href="mailto:contact@andreavarela.fr"
             className="w-fit sm:w-auto flex items-center justify-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 border border-black text-white font-roboto bg-black hover:bg-black hover:bg-green hover:text-black transition-all"
           >
             <Mail size={32} strokeWidth={1.3} />
