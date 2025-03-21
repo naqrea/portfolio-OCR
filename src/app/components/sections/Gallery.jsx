@@ -26,7 +26,7 @@ const Gallery = ({ images = [] }) => {
   };
 
   return (
-    <div className="container mx-auto  relative " id="gallery">
+    <div className="container mx-auto  relative my-16" id="gallery">
       <Masonry
         breakpointCols={breakpointColumns}
         className="flex -ml-4 w-auto"

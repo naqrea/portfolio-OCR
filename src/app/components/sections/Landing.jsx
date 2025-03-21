@@ -77,14 +77,6 @@ export default function Landing({ projects }) {
                 >
                   <span className="font-normal">WEB DEV</span>ELOPPER
                 </motion.span>
-
-                <motion.span
-                  variants={portfolioLineVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  & <span className="font-normal">UI DESIGN</span>ER
-                </motion.span>
               </h2>
             </div>
           </div>

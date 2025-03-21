@@ -112,7 +112,6 @@ export default function Navbar() {
         >
           {[
             { href: "#projects", text: "PROJETS" },
-            { href: "#about", text: "À PROPOS" },
             { href: "#gallery", text: "GALERIE" },
             { href: "#contact", text: "CONTACT" },
           ].map((item) => (
